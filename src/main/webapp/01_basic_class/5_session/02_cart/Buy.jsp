@@ -5,14 +5,19 @@
 <%@ page import="java.util.*" %>
 
 <%
-	ArrayList<Goods> glist = null;
-
-	request.setCharacterEncoding("utf-8");
+	ArrayList<Goods> glist = null; // 선언하기
+ 
+	request.setCharacterEncoding("utf-8"); // 한글 깨지지 않도록 인코딩해주기
 	
 	// 1. 세션에서 지정한 cart 속성값을 얻어온다
-	// 2. 위의 값이 null 이면 리턴하고, 그렇지 않으면 glist 에 세션의 값을 지정
-	// 3. 세션에서 속성을 제거한다
-
+	Object obj = session.getAttribute("cart"); 
+	
+	// 2. 위의 값이 null이면 리턴하고, 그렇지 않으면 glist 에 세션의 값을 지정
+	if(obj==null)return; // 카트에 담긴 물건이 없을 경우 리턴
+	else glist =(ArrayList<Goods>)obj; // 형 변환 (Object > ArrayList<>)
+	 
+	// 3. 세션에서 속성을 제거(remove)한다 / 세션 무효화: invalidate()
+	session.removeAttribute("cart");
 		
 %>		 
  
@@ -26,7 +31,7 @@
 		int sum = 0; 
 		int n = glist.size(); 
 		 
-		for(int i=0; i < n; i++) { 
+		for(int i=0; i < n; i++) {
 			Goods goods = (Goods) glist.get(i); 
 			int gp = goods.getPrice(); 
 			sum += gp; 

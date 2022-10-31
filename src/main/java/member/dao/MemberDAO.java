@@ -33,7 +33,7 @@ public class MemberDAO {
 		System.out.println("연결성공");
 		
 		// 3. sql 작성 (emp 테이블에 insert)
-		String sql = "INSERT INTO form(realname, nickname, myemail, myage) VALUES(?, ?, ?, ?)";
+		String sql = "INSERT INTO MEMBERTEST(realname, nickname, myemail, myage) VALUES(?, ?, ?, ?)";
 
 		// 4. 전송 객체 얻어오기(+ ?에 값 지정)
 		ps = con.prepareStatement(sql);
@@ -44,6 +44,7 @@ public class MemberDAO {
 		
 		// 5. executeupdate
 		ps.executeUpdate();
+		
 		}finally {
 		// 6. 닫기 
 		ps.close();

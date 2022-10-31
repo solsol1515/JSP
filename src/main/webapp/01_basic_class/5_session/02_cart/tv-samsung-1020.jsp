@@ -5,9 +5,10 @@
 <head><title> 우리 쇼핑몰 </title></head> 
 <body> 
  
-<table><tr><td><img src='imgs/1020.jpg' width='180'> 
- 
-</td><td> 
+<table><tr><td>
+<img src='imgs/1020.jpg' width='180'> 
+</td>
+<td> 
 ^^상품설명^^ 
 *14" 화면 명품 플러스 
 *절약형 절전 TV 
@@ -17,9 +18,9 @@
 *A/V 입력 단자: 후1 
 *다기능 간단 리모컨(VTR 조작기능)  
 *크기: 380 X 325 X 381(mm) 
-</td></tr></table> 
+</td></tr></table>
  
-<pre> 
+<pre>
 [[ 특징 ]] 
 *절전 스위치를 내장한 초절전 TV:  
 대기 소비전력을 0으로 낮추어서 TV 평균 사용 기간인 

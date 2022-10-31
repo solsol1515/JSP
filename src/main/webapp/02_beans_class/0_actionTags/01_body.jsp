@@ -4,10 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> 첫번째 페이지 </title>
+<title> header와 footer 삽입하기(include file="파일 이름")</title>
 </head>
 <body>
-		<hr><hr>
+		<!-- ##################  -->
+		<!-- 페이지 삽입  -->
+		<%-- <%@  "include file="" " %> --%>
+		
+		<jsp:include page="01_header.jsp"/>
+		
+		<hr><hr/>
 		<!-- 메인 내용 시작  -->
 		
 		<div id="content">
@@ -18,8 +24,7 @@
 			<div class="content_view">
 				<div class="cont_box">
 					<div class="inner">
-						<h4><img src="./imgs/txt_0301.gif" alt="가. 17세기 한 &#183 일 양국 정부간 교섭(울릉도쟁계) 과정을 통해 울릉도와 그 부속섬 독도가 우리나라 영토임이
- 확인되었습니다." /></h4>
+						<h4><img src="./imgs/txt_0301.gif" alt="가. 17세기 한 &#183 일 양국 정부간 교섭(울릉도쟁계) 과정을 통해 울릉도와 그 부속섬 독도가 우리나라 영토임이 확인되었습니다." /></h4>
 						<ul class="list">
 							<li>17세기 일본 돗토리번(鳥取藩)의 오야(大谷) 및 무라카와(村川) 양가는 조선 영토인 울릉도에서 불법 어로행위를 하다가 1693년 울릉도에서 <a href="#" onclick="goto_page('0020105')"><strong>안용복</strong></a>을 비롯한 조선인들과 만나게 되었습니다. </li>
 							<li>양가는 일본 정부(에도 막부)에 조선인들의 울릉도 도해(渡海)를 금지해달라고 청원하였고, 막부가 <span class="let02">쓰시마번(對馬藩)에</span> 조선 정부와의 교섭을 지시함에 따라 양국간 교섭이 개시되는데, 이를 ‘울릉도쟁계’라 합니다.</li>
@@ -45,13 +50,11 @@
 		<!-- 메인 내용 끝  -->
 		<hr><hr>
 		
+		<!-- ##################  -->
+		<!-- 페이지 삽입  -->
+		<jsp:include page="01_footer.jsp"/>
 		
 
-		<!-- #######  리다이렉트 페이지 이동  -->
-		<%
-			response.sendRedirect("04_responseSecond.jsp");
-		%>
-		
-		
+
 </body>
 </html>
