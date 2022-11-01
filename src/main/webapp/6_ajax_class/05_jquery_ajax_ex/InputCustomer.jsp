@@ -20,38 +20,64 @@ $(function(){
 		// AJAX 통신
 		//  (1) 사용자 입력값을 객체 형식으로 저장 
 		// 		→ 추후에 폼 객체 serialize() 참고  
-		var param = {
-				name : $('#name').val(),
-				age	 : $('#age').val(),
-				tel	 : $('#tel').val(),
-				addr : $('#addr').val()
-				}
+		let param = {
+				name : $('#name').val(), // id="name"인 태그의 값 가져오기
+				age	 : $('#age').val(), // id="age"인 태그의 값 가져오기
+				tel	 : $('#tel').val(), // id="tel"인 태그의 값 가져오기
+				addr : $('#addr').val() // id="addr"인 태그의 값 가져오기
+				} // 가져온 값들을 param에 담음
+		
 		// alert(param);
 		$.ajax({
-			url 	 : 'DataInput.jsp',
-			data	 : param,
-			success	 : function(data){
+			url 	 : 'DataInput.jsp', // 여기로 이동
+			data	 : param, 
+			success	 : function(data){ // 성공 시, 
 // 				alert('<'+ data +'>');
-				if(data.trim() == '1'){
-					alert('입력 성공');
+				if(data.trim() == '1'){ // data의 공백을 제거한 값이 1일 경우(참)
+					// alert('입력 성공');
 					// 화면 입력 값을 초기화
-					$('#name').val('');
-					$('#age').val('');
-					$('#tel').val('');
-					$('#addr').val('');
+					$('#name').val(''); // 빈 텍스트로 저장
+					$('#age').val(''); // 빈 텍스트로 저장
+					$('#tel').val(''); // 빈 텍스트로 저장
+					$('#addr').val(''); // 빈 텍스트로 저장
 				}else{
 					alert('입력 실패');
-				}
-			}
-		});
-	});
+				} // end of else
+			} // end of function(success)
+		}); // end of ajax
+	}); // end of function (click)
 	
 	// 2) 가져오기 버튼이 눌렸을 때
 	$('#btnSelect').click(function(){
-		// 원래 통신
-		
-	});
+		$.ajax({
+			url			: 'DataSelect.jsp',
+			dataType	: 'xml',
+			success		: selectResult
+		}) // end of ajax	
+	}) // end of function(click)
 	
+	function selectResult(data){
+		// alert(data); * 중간에 연결이 잘 됐는지 확인하기 *
+		// console.lob(data);
+		let person = $(data).find('person');
+		// alert(person.length);
+		
+		$('#tbd').empty(); // 내용 지우기
+		
+		person.each(function(){
+			let name = $(this).find('name').text();
+			let age = $(this).find('age').text();
+			let tel = $(this).find('tel').text();
+			let addr = $(this).find('addr').text();
+			
+			$('#tbd').append('<tr>'
+						   + '<td>' + name + '</td>'
+						   + '<td>' + age  + '</td>'
+						   + '<td>' + tel  + '</td>'
+						   + '<td>' + addr + '</td>'
+						   + '</tr>')
+		}) // end of function(each)
+	} // end of selectResult()
 })
 </script>
 </head>

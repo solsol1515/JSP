@@ -11,7 +11,6 @@ String age   = request.getParameter("age");
 String tel   = request.getParameter("tel");
 String addr  = request.getParameter("addr");
 
-
 	Class.forName(driver);
 	Connection connection=DriverManager.getConnection(dbURL,user,pass);		
 	
