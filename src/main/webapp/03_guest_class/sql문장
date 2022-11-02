@@ -1,0 +1,61 @@
+-- 페이징
+--      - 추후에 프레임워크(springboot / mybatis)에 페이징 기법을 쉽게 사용
+
+--      - 오라클
+--          - hint
+--          - row_number()
+
+-- [1]단계
+-- (PK인 경우)
+SELECT rownum, empno FROM emp;
+-- (PK가 아닌 경우)
+SELECT rownum, ename FROM emp;
+
+SELECT rownum, message_id FROM guesttb;
+
+-- [2]단계
+SELECT rownum, empno FROM emp ORDER BY empno DESC;
+
+SELECT rownum, ename FROM emp ORDER BY ename DESC;
+
+SELECT rownum, message_id FROM guesttb ORDER BY  DESC;
+
+-- [3]단계
+SELECT      rownum rnum, empno
+FROM        (SELECT empno FROM emp ORDER BY empno DESC);
+
+SELECT      rownum rnum, ename
+FROM        (SELECT ename FROM emp ORDER BY ename DESC);
+
+SELECT      rownum as rnum, message_id
+FROM        (SELECT message_id FROM guesttb ORDER BY message_id DESC);
+
+-- [4]단계
+SELECT      empno 
+FROM        (SELECT      rownum rnum, empno
+                 FROM        (SELECT empno FROM emp ORDER BY empno DESC) )
+WHERE       rnum>= 4 AND rnum<=6;
+
+SELECT      message_id
+FROM        (SELECT      rownum as rnum, message_id
+                  FROM       (SELECT message_id FROM guesttb ORDER BY message_id DESC) )
+WHERE      rnum>= 1 AND rnum<=3;
+
+-- [5]단계
+SELECT        *
+FROM         emp
+WHERE       empno IN (SELECT      empno 
+                                 FROM        (SELECT      rownum rnum, empno
+                                                   FROM        (SELECT empno FROM emp ORDER BY empno DESC) )
+                                 WHERE       rnum>= 1 AND rnum<=3
+                                 )
+ORDER BY  empno DESC; 
+
+SELECT      *
+FROM       guesttb
+WHERE      message_id IN (SELECT   message_id
+                          FROM    (SELECT	rownum as rnum, message_id
+                                   FROM       (SELECT message_id FROM guesttb ORDER BY message_id DESC) )
+                          WHERE      rnum>= 4 AND rnum<=6
+                          )
+ORDER BY message_id DESC;
