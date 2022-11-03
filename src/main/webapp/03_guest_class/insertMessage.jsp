@@ -7,35 +7,26 @@
 <title> 방명록 </title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
 <script type="text/javascript">
-
-	$(function(){
-		$('#submintBtn').click(function(){
-			// 유효성 검사
-			let name = $('input[name="guestName"]').val();
-			let pw = $('input[name="password"]').val();
-			let mg = $('textarea[name="message"]').val();
+$(function(){
+	$('#submitBtn').click(function(){
+		//유효성 검사 : 입력하지도 않고 누를 경우에는 거부
+		if( $('input[name="guestName"]').val()==""){			//이름을 입력하지 않았을 경우
+			alert("이름을 입력하세요");
+			$('input[name="guestName"]').focus();							// 이름 input으로 포커스 이동
 			
-			function checkLogin(){
-				
-				if(name==''||name==null){
-					alert('이름을 입력해주세요.');
-					//$('input[name="guestName"]').focus(); // 이름 input으로 포커스 이동
-				
-				}else if(pw==''||pw==null){
-					alert('비밀번호를 입력해주세요.');
-				
-				}else if(mg==''||mg==null){
-					alert('메시지를 입력해주세요.');
-				
-				}else{ 
-				} // end of else
-			} // end of checkLogin()
+		} else if ($('input[name="password"]').val()==""){	// 비밀번호를 입력하지 않았을 경우
+			alert("비밀번호를 입력하세요");
+			$('input[name="password"]').focus();							// 비밀번호 input으로 포커스 이동
 			
-			$('form[name="frm"]').submit(); // form의 name이 frm 속성값을 가지는 태그 값을 submit 
-		}) // end of click
-		
-	}); // end of function
-
+		} else if ($('textarea').val()==""){							// 메세지 내용을 입력하지 않았을 경우
+			alert("메세지를 입력하세요");
+			$('textarea').focus();													// 메세지 textarea로 포커스 이동
+		} else {
+			$('form[name="frm"]').submit();
+		}
+	})
+	
+})
 </script>
 </head>
 

@@ -29,6 +29,6 @@
 	<font size="3" color="#bb44cc">
 		<%= m.getGuestName() %>님의 방명록에 메세지를 남겼습니다. 
 	</font><br/><br/><br/>
-	 <a href='listMessage.jsp'>[ 목록보기 ]</a> 
+	 <a href='listMessage.jsp'>[ 목록보기 ]</a>
 </body>
 </html>

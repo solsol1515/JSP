@@ -92,9 +92,9 @@ public class MessageDao {
 	{
 		Connection	 	 con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<Message> mList = new ArrayList<Message>();
-		boolean isEmpty = true;
+		ResultSet rs 		 = null;
+		List<Message> mList  = new ArrayList<Message>();
+		boolean isEmpty 	 = true;
 		
 		try{
 			// 1. 연결 객체
@@ -135,15 +135,15 @@ public class MessageDao {
 	
 
 	/* -------------------------------------------------------
-	 * 현재 페이지에 보여울 메세지 목록 얻어올 때
+	 * 현재 페이지에 보여줄 메세지 목록 얻어올 때
 	 */
 	public List<Message> selectList(int firstRow, int endRow) throws MessageException
 	{
-		Connection	 		con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<Message> mList = new ArrayList<Message>();
-		boolean isEmpty = true;
+		Connection con 			= null;
+		PreparedStatement ps 	= null;
+		ResultSet rs 			= null;
+		List<Message> mList 	= new ArrayList<Message>();
+		boolean isEmpty 		= true;
 		
 		try{
 			// 1. 연결 객체
@@ -199,10 +199,10 @@ public class MessageDao {
 	 */
 	
 	public int getTotalCount() throws MessageException{
-		Connection	 	 con = null;
+		Connection con 		 = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
-		int count = 0;
+		ResultSet rs 		 = null;
+		int count 			 = 0;
 
 		try{
 			// 1. 연결 객체

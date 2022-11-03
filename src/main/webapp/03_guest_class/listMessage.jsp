@@ -10,9 +10,9 @@
 
 	// 전체 메세지 레코드 검색 
 	ListMessageService service = ListMessageService.getInstance();
-	List <Message> mList = service.getMessageList(pNum);
+	List <Message> mList 	   = service.getMessageList(pNum);
 	
-	int totalPageCount = service.getTotalPage();
+	int totalPageCount 		   = service.getTotalPage();
 	
 %>    
 <!DOCTYPE html>
