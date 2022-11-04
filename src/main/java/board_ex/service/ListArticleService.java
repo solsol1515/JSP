@@ -22,8 +22,7 @@ public class ListArticleService {
 		return instance;
 	}
 	
-	public List <BoardVO> getArticleList(String pNum) throws BoardException
-	{
+	public List <BoardVO> getArticleList(String pNum) throws BoardException{
 		// 전체 레코드를 검색해 온다면
 			int pageNum = 1; // 페이지 값 없을 때 기본으로 1지정 (하단 방명록 페이지 숫자)
 			if(pNum!=null) pageNum = Integer.parseInt(pNum); // pNum이 null이 아닐 경우, pageNum(방명록 페이지 수)를 String > int로 형변환
@@ -41,25 +40,25 @@ public class ListArticleService {
 		return mList;
 	}
 	
-	public List <Message> getMessageList(String pNum) throws MessageException
-	{
-		// 전체 레코드를 검색해 온다면
-		int pageNum = 1; // 페이지 값 없을 때 기본으로 1지정 (하단 방명록 페이지 숫자)
-		if(pNum!=null) pageNum = Integer.parseInt(pNum); // pNum이 null이 아닐 경우, pageNum(방명록 페이지 수)를 String > int로 형변환
-			
-		/*		페이지 번호 	시작레코드 번호		끝레코드 번호
-		 * 			1			1				3
-		 * 			2			4				6
-		 * 			3			7				9
-		 */
-		
-		int startRow = countPerPage * pageNum - 2; // 레코드 시작 번호 
-		int endRow 	 = pageNum * countPerPage; // 레코드 끝 번호
-		
-		List <Message> mList = MessageDao.getInstance().selectList(startRow, endRow);			
-		return mList;
-		
-	}
+//	public List <Message> getMessageList(String pNum) throws MessageException
+//	{
+//		// 전체 레코드를 검색해 온다면
+//		int pageNum = 1; // 페이지 값 없을 때 기본으로 1지정 (하단 방명록 페이지 숫자)
+//		if(pNum!=null) pageNum = Integer.parseInt(pNum); // pNum이 null이 아닐 경우, pageNum(방명록 페이지 수)를 String > int로 형변환
+//			
+//		/*		페이지 번호 	시작레코드 번호		끝레코드 번호
+//		 * 			1			1				3
+//		 * 			2			4				6
+//		 * 			3			7				9
+//		 */
+//		
+//		int startRow = countPerPage * pageNum - 2; // 레코드 시작 번호 
+//		int endRow 	 = pageNum * countPerPage; // 레코드 끝 번호
+//		
+//		List <Message> mList = MessageDao.getInstance().selectList(startRow, endRow);			
+//		return mList;
+//		
+//	}
 	
 	public int getTotalPage() throws BoardException{
 		

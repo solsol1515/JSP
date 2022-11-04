@@ -328,11 +328,11 @@ public class BoardDao
 	    */
 	   public List<BoardVO> selectList(int firstRow, int endRow) throws BoardException
 	   {
-	      Connection          con = null;
-	      PreparedStatement ps = null;
-	      ResultSet rs = null;
-	      List<BoardVO> mList = new ArrayList<BoardVO>();
-	      boolean isEmpty = true;
+	      Connection con 		  = null;
+	      PreparedStatement ps	  = null;
+	      ResultSet rs 		      = null;
+	      List<BoardVO> mList 	  = new ArrayList<BoardVO>();
+	      boolean isEmpty 		  = true;
 	      
 	      try{
 	         con = DriverManager.getConnection(dbUrl,dbUser,dbPass);
