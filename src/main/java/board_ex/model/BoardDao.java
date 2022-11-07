@@ -283,9 +283,9 @@ public class BoardDao
 		}
 		
 	}
-	 /* -------------------------------------------------------
-	    * 메세지 전체 레코드 수를 검색
-	    */
+	 	/* -------------------------------------------------------
+	     * 메세지 전체 레코드 수를 검색
+	     */
 	   
 	   public int getTotalCount() throws BoardException{
 	      Connection con 			= null;

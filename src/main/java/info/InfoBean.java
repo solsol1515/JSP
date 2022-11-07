@@ -2,8 +2,8 @@ package info;
 
 public class InfoBean {
 	
-	private String id;
-	private String name;
+	private String id;		// 주민번호
+	private String name;	// 이름
 	
 	public String getGender() {
 		String gender = ""; // gender 변수 선언해주기 
